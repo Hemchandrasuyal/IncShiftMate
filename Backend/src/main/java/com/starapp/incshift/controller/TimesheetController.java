@@ -51,7 +51,7 @@ public class TimesheetController {
 		return timesheetRepository.findByemployeeId(employeeid);
 	}
 	
-	
+	//time sheet to employee based on status
 	@CrossOrigin("*")
 	 @PostMapping("java/Employee/Timesheet/approved")
 	    public ResponseEntity<List<Timesheet>> fetchEmployee(@RequestBody EmployeeRequest employeeRequest){
@@ -84,7 +84,7 @@ public class TimesheetController {
 
 		//Show all  time sheet to employee based on approval status 1-approved and 0-rejected (Just for testing)
 		@CrossOrigin("*")	
-		@GetMapping("/java/showtimesheettoemployee/{employeeid}/{approval}")
+		@GetMapping("/java/Employee/Timesheet/Status/{employeeid}/{approval}")
 		public List<Timesheet> fetchAlltimesheetOfUser(@PathVariable("employeeid") int employeeid,@PathVariable("approval")int approval){
 		
 			return timesheetRepository.findByemployeeIdapproval(employeeid,approval);
